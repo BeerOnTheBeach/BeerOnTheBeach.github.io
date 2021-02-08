@@ -39,50 +39,50 @@ $pokemonData = json_decode(file_get_contents("data.json"));
         $pokemonData = $randomizer->totalRandom();
     }
     ?>
-
-    <form class="row" method="post">
-        <div class="col">
-            <input type="submit" name="randomType" class="btn btn-primary" value="Typ"/>
+    <form method="post">
+        <div class="navbar btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group me-2 col-1" style="margin-left: 8px;" role="group">
+                <button type="submit" name="randomType" class="btn btn-info">Typ</button>
+            </div>
+            <div class="btn-group me-2 col-3" role="group">
+                <button type="submit" name="randomHeight" class="btn btn-secondary">Höhe</button>
+                <button type="submit" name="randomWeight" class="btn btn-secondary">Gewicht</button>
+                <button type="submit" name="randomColor" class="btn btn-secondary">Farbe</button>
+            </div>
+            <div class="btn-group me-2 col-2" role="group">
+                <button type="submit" name="randomChar" class="btn btn-secondary">Anfangsbuchstabe</button>
+            </div>
+            <div class="btn-group me-2 col" role="group">
+                <button style="background-color: #F85888" type="submit" name="isBaby" class="btn">Nur Baby-Pokemon!</button>
+            </div>
+            <div class="btn-group me-2 col" role="group">
+                <button type="submit" name="totalRandom" class="btn btn-danger">Random!</button>
+            </div>
+            <table class="table table-hover text-center">
+                <tr class="d-flex">
+                    <th class="col-1">Typ</th>
+                    <th class="col-1">Höhe</th>
+                    <th class="col-1">Gewicht</th>
+                    <th class="col-1">Farbe</th>
+                    <th class="col-2">Anfangsbuchstabe</th>
+                    <th class="col-3">Babys</th>
+                    <th class="col-3">Random</th>
+                </tr>
+                <tr class="d-flex">
+                    <?php
+                    echo "<td class='col-1 pe-2'>" . $randomizer->randomType . "</td>";
+                    echo "<td class='col-1 pe-2'>" . $randomizer->randomHeight . "</td>";
+                    echo "<td class='col-1 pe-2'>" . $randomizer->randomWeight . "</td>";
+                    echo "<td class='col-1 pe-2'>" . $randomizer->randomColor . "</td>";
+                    echo "<td class='col-2 pe-2'>" . $randomizer->randomChar . "</td>";
+                    echo "<td height='50px' class='col-3 pe-2'><img style='top: -25px; position: relative;' src=" . $randomizer->isBaby . " alt='Front'></td>";
+                    echo "<td class='col-3'></td>";
+                    ?>
+                </tr>
+            </table>
         </div>
-        <div class="col">
-            <input type="submit" name="randomHeight" class="btn btn-primary" value="Höhe"/>
-        </div>
-        <div class="col">
-            <input type="submit" name="randomWeight" class="btn btn-primary" value="Gewicht"/>
-        </div>
-        <div class="col">
-            <input type="submit" name="randomChar" class="btn btn-primary" value="Anfangsbuchstabe"/>
-        </div>
-        <div class="col">
-            <input type="submit" name="isBaby" class="btn btn-primary" value="Nur Baby-Pokemon!"/>
-        </div>
-        <div class="col">
-            <input type="submit" name="randomColor" class="btn btn-primary" value="Farbe"/>
-        </div>
-        <div class="col">
-            <input type="submit" name="totalRandom" class="btn btn-primary" value="Random"/>
-        </div>
-
-
     </form>
-    <table class="table table-hover">
-        <tr>
-            <th>Typ</th>
-            <th>Höhe</th>
-            <th>Gewicht</th>
-            <th>Anfangsbuchstabe</th>
-            <th>Farbe</th>
-        </tr>
-        <tr>
-            <?php
-            echo "<td>" . $randomizer->randomType . "</td>";
-            echo "<td>" . $randomizer->randomHeight . "</td>";
-            echo "<td>" . $randomizer->randomWeight . "</td>";
-            echo "<td>" . $randomizer->randomChar . "</td>";
-            echo "<td>" . $randomizer->randomColor . "</td>";
-            ?>
-        </tr>
-    </table>
+
     <table class="table table-hover table-pokemon">
         <thead>
         <tr>

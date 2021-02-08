@@ -10,7 +10,7 @@ class PokeRandomizer
     public $randomHeight = "Alle";
     public $randomWeight = "Alle";
     public $randomChar = "Alle";
-    public $isBaby = "Alle";
+    public $isBaby = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/172.png";
     public $randomColor = "Alle";
 
     //Types
@@ -20,8 +20,11 @@ class PokeRandomizer
 
     public $colors = ["black", "blue", "brown", "gray", "green", "pink",
         "purple", "red", "white", "yellow"];
-    //Height
+
+    //Height Interval
     public $segHeight = [0, 11, 22, 10000];
+
+    //Weight Interval
     public $segWeight = [0, 62, 130, 10000];
 
     public function __construct()
@@ -60,7 +63,7 @@ class PokeRandomizer
         $interval = "Alle";
         while (empty($pkmWithHeight)) {
             $randHeight = array_rand(array_flip($this->segHeight), 2);
-            $interval = "Von " . $randHeight[0]/10 . " bis " . $randHeight[1]/10 . " Meter";
+            $interval = $randHeight[0]/10 . " - " . $randHeight[1]/10 . "m";
             foreach ($data as $key => $pokemon) {
                 if($pokemon->height >= $randHeight[0] && $pokemon->height <= $randHeight[1]) {
                     $pkmWithHeight[] = $pokemon;
@@ -80,7 +83,7 @@ class PokeRandomizer
         $interval = "Alle";
         while (empty($pkmWithWeight)) {
             $randWeight = array_rand(array_flip($this->segWeight), 2);
-            $interval = "Von " . $randWeight[0] / 10 . " bis " . $randWeight[1] / 10 . " kg";
+            $interval = $randWeight[0] / 10 . " - " . $randWeight[1] / 10 . "kg";
             foreach ($data as $key => $pokemon) {
                 if ($pokemon->weight >= $randWeight[0] && $pokemon->weight <= $randWeight[1]) {
                     $pkmWithWeight[] = $pokemon;
@@ -117,12 +120,15 @@ class PokeRandomizer
             //$this->resetFields();
         }
         $babyPokemon = [];
+        $randomBaby = rand(0,9);
+        $i = 0;
             foreach ($data as $key => $pokemon) {
                 if ($pokemon->baby == true) {
+                    if($randomBaby == $i) $this->isBaby = $pokemon->imageUrl;
+                    $i++;
                     $babyPokemon[] = $pokemon;
                 }
             }
-        $this->isBaby = "Ja";
         return $babyPokemon;
     }
 
@@ -145,7 +151,6 @@ class PokeRandomizer
         return $pkmWithColor;
     }
     public function resetFields()  {
-        $this->isBaby = "Nein";
         $this->randomType = "Alle";
         $this->randomHeight = "Alle";
         $this->randomWeight = "Alle";
