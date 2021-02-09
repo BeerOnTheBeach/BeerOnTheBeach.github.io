@@ -2,5 +2,11 @@
     "require": {
         "twbs/bootstrap": "5.0.0-beta1",
       "ext-json": "*"
+    },
+    "scripts": {
+      "post-update-cmd": [
+        "rm -rf public/bootstrap",
+        "cp -R vendor/twbs/bootstrap/dist public/bootstrap"
+      ]
     }
 }
