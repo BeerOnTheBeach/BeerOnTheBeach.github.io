@@ -10,10 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58497114-3406-4eeb-a63c-83d0f85a520a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer" beforeDir="false" />
-    </list>
+    <list default="true" id="58497114-3406-4eeb-a63c-83d0f85a520a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,9 +32,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/twbs/bootstrap" />
       <path value="$PROJECT_DIR$/vendor/danrovito/pokephp" />
+      <path value="$PROJECT_DIR$/vendor/twbs/bootstrap" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
   <component name="ProjectId" id="1o6ejvgGJPkZrXCUgejGElcyyen" />
@@ -99,7 +96,7 @@
       <workItem from="1612688049243" duration="2159000" />
       <workItem from="1612691753365" duration="20117000" />
       <workItem from="1612810838837" duration="4662000" />
-      <workItem from="1612894028269" duration="671000" />
+      <workItem from="1612894028269" duration="1409000" />
     </task>
     <servers />
   </component>
